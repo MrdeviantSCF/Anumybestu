@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07110d">
+<title>For Anu — The Friendship Chapter</title>
+<meta name="description" content="A little digital chapter for Anu — made for friendship, memories and all the ordinary moments that became special.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#06100c;--bg2:#0a1712;--cream:#fffaf0;--muted:rgba(255,250,240,.68);
+  --faint:rgba(255,250,240,.38);--green:#7ee0a2;--mint:#8df2cf;
+  --yellow:#f8dc91;--peach:#ffb18c;--pink:#ff83ae;--blue:#78c9ff;
+  --line:rgba(255,255,255,.12);--serif:"Playfair Display",Georgia,serif;
+  --sans:"DM Sans",system-ui,sans-serif;--mono:"DM Mono",monospace;
+  --ease:cubic-bezier(.16,1,.3,1)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}img{display:block;max-width:100%}
+::selection{background:var(--green);color:#06100c}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.noise{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.ambient{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle at 15% 20%,rgba(126,224,162,.12),transparent 28%),radial-gradient(circle at 85% 30%,rgba(255,131,174,.08),transparent 25%),radial-gradient(circle at 55% 90%,rgba(120,201,255,.07),transparent 28%)}
+.light{position:fixed;width:520px;height:520px;border-radius:50%;z-index:2;pointer-events:none;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(126,224,162,.12),rgba(255,177,140,.035) 43%,transparent 72%);filter:blur(5px);mix-blend-mode:screen}
+main{position:relative;z-index:3}.section{position:relative;min-height:100vh;padding:clamp(85px,10vw,150px) clamp(22px,7vw,100px);display:flex;align-items:center;overflow:hidden;isolation:isolate}
+.inner{width:min(1100px,100%);margin:auto;position:relative;z-index:4}
+.eyebrow{font:500 10px/1 var(--mono);letter-spacing:.25em;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:12px;margin:0 0 28px}
+.eyebrow:before{content:"";width:27px;height:1px;background:linear-gradient(90deg,var(--green),var(--pink))}
+.reveal{opacity:0;transform:translateY(32px);filter:blur(8px);transition:1.05s var(--ease)}
+.reveal.show{opacity:1;transform:none;filter:none}
+.gradient{background:linear-gradient(105deg,var(--cream),#b7ffd0 28%,#ff9fbe 55%,var(--yellow) 78%,var(--cream));background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:grad 10s ease-in-out infinite}
+@keyframes grad{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.42;pointer-events:none;animation:float 15s ease-in-out infinite}
+@keyframes float{50%{transform:translate(4%,-7%) scale(1.1)}}
+
+/* Opening */
+#gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;text-align:center;padding:24px;background:#030907;overflow:hidden;transition:1.25s var(--ease)}
+#gate.out{opacity:0;visibility:hidden;pointer-events:none}
+.gate-glow{position:absolute;inset:-20%;background:radial-gradient(circle at 38% 45%,rgba(126,224,162,.25),transparent 24%),radial-gradient(circle at 70% 56%,rgba(255,131,174,.20),transparent 24%),radial-gradient(circle at 55% 85%,rgba(248,220,145,.10),transparent 20%);filter:blur(50px);animation:aurora 11s ease-in-out infinite alternate}
+@keyframes aurora{to{transform:translate(2%,-3%) scale(1.07)}}
+.gate-content{position:relative;z-index:2}.gate-date{font:500 10px var(--mono);letter-spacing:.25em;color:#9ce6b4;margin-bottom:38px}
+.gate-for{font:500 11px var(--mono);letter-spacing:.45em;text-transform:uppercase;color:var(--faint)}
+.gate-name{font:italic 500 clamp(88px,20vw,220px)/.83 var(--serif);letter-spacing:-.05em;margin:8px 0 24px}
+.gate-sub{font:italic 400 clamp(15px,2vw,19px) var(--serif);color:var(--muted)}
+.enter{margin-top:52px;padding:1px;border-radius:999px;background:linear-gradient(100deg,var(--green),var(--blue),var(--pink),var(--yellow),var(--green));background-size:300% 100%;animation:grad 7s linear infinite;display:inline-block}
+.enter button{border-radius:999px;background:rgba(3,9,7,.92);padding:15px 28px;font:500 10px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+
+/* progress */
+.progress{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--faint);font:500 9px var(--mono)}
+.progress .bar{height:110px;width:1px;background:rgba(255,255,255,.13);position:relative}.progress .fill{position:absolute;inset:0 0 auto;height:0;background:linear-gradient(var(--green),var(--pink),var(--yellow))}
+@media(max-width:700px){.progress{display:none}}
+
+/* Hero */
+#opening{background:radial-gradient(circle at 50% 44%,rgba(126,224,162,.14),transparent 30%),linear-gradient(180deg,#06100c,#0b1b14 55%,#07100c)}
+.hero-title{font:italic 500 clamp(58px,11vw,125px)/.91 var(--serif);letter-spacing:-.045em;margin:0}
+.hero-copy{max-width:670px;color:var(--muted);font-size:clamp(17px,2.2vw,21px);margin-top:34px}
+.scroll{margin-top:68px;color:var(--faint);font:500 10px var(--mono);letter-spacing:.18em;display:flex;gap:12px;align-items:center}.scroll i{width:48px;height:1px;background:linear-gradient(90deg,var(--green),transparent)}
+
+/* Friendship */
+#friendship{background:linear-gradient(180deg,#07100c,#07171a)}
+.friend-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:center}
+.friend-title{font:italic 400 clamp(43px,7vw,83px)/1.08 var(--serif);margin:0}
+.friend-title span{color:var(--green)}
+.friend-copy{color:var(--muted);font-size:17px;line-height:1.95}
+.friend-copy p{margin:0 0 24px}
+.mantra{border-left:1px solid var(--green);padding-left:22px;color:var(--cream);font:italic 21px/1.6 var(--serif);margin-top:35px}
+@media(max-width:800px){.friend-grid{grid-template-columns:1fr;gap:40px}}
+
+/* photo gallery */
+#photos{background:linear-gradient(180deg,#07171a,#15120c 100%)}
+.photo-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:50px}
+.photo-title{font:400 clamp(43px,7vw,84px)/1 var(--serif);letter-spacing:-.035em;margin:0}
+.photo-copy{max-width:360px;color:var(--muted);font-size:15px}
+.gallery{min-height:920px;position:relative}
+.photo{position:absolute;overflow:hidden;border-radius:24px;border:1px solid rgba(255,255,255,.15);box-shadow:0 45px 120px rgba(0,0,0,.45);background:#10110d}
+.photo img{width:100%;height:100%;object-fit:cover;transition:1.3s var(--ease)}
+.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.62))}
+.photo:hover img{transform:scale(1.06)}
+.p1{width:55%;height:710px;left:3%;top:0;transform:rotate(-2deg)}
+.p2{width:39%;height:510px;right:2%;top:180px;transform:rotate(3deg)}
+.p3{width:34%;height:400px;left:29%;top:540px;transform:rotate(-1deg)}
+.photo-meta{position:absolute;z-index:2;left:22px;right:22px;bottom:20px;display:flex;justify-content:space-between;align-items:end}
+.photo-caption{font:italic 21px var(--serif)}.photo-num{font:500 9px var(--mono);letter-spacing:.14em;color:rgba(255,255,255,.65)}
+@media(max-width:700px){
+ .photo-head{display:block}.photo-copy{margin-top:18px}.gallery{min-height:1030px}
+ .p1{width:87%;height:600px;left:1%;top:0}.p2{width:70%;height:440px;right:0;top:470px}.p3{width:59%;height:330px;left:10%;top:735px}
+}
+
+/* little things */
+#little{background:radial-gradient(circle at 18% 30%,rgba(120,201,255,.10),transparent 27%),radial-gradient(circle at 85% 70%,rgba(255,131,174,.10),transparent 27%),#080c16}
+.little-title{font:italic 400 clamp(44px,7vw,82px)/1.08 var(--serif);margin:0;max-width:850px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:55px}
+.card{min-height:220px;padding:28px;border:1px solid rgba(255,255,255,.10);border-radius:20px;background:rgba(255,255,255,.035);transition:.55s var(--ease);position:relative;overflow:hidden}
+.card:hover{transform:translateY(-7px);border-color:rgba(126,224,162,.34);background:rgba(126,224,162,.055)}
+.card b{display:block;font:italic 400 28px var(--serif);margin:58px 0 8px}.card span{font-size:14px;color:var(--muted)}
+.card:nth-child(1):before,.card:nth-child(4):before{background:var(--green)}.card:nth-child(2):before{background:var(--pink)}.card:nth-child(3):before{background:var(--blue)}
+.card:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-50px;top:-50px;filter:blur(50px);opacity:.17}
+@media(max-width:700px){.cards{grid-template-columns:1fr}}
+
+/* Timeline */
+#timeline{background:linear-gradient(180deg,#080c16,#0a120d)}
+.timeline{position:relative;margin-top:55px;padding-left:42px}
+.timeline:before{content:"";position:absolute;left:7px;top:0;bottom:0;width:1px;background:linear-gradient(var(--green),var(--pink),transparent)}
+.event{position:relative;padding:0 0 70px}.event:before{content:"";position:absolute;left:-40px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--cream);box-shadow:0 0 22px rgba(126,224,162,.6)}
+.event small{font:500 9px var(--mono);letter-spacing:.2em;color:var(--faint)}.event h3{font:italic 400 clamp(28px,4vw,44px) var(--serif);margin:13px 0 8px}.event p{max-width:650px;color:var(--muted);margin:0;font-size:16px}
+
+/* Dreams */
+#dreams{background:radial-gradient(circle at 50% 30%,rgba(255,177,140,.12),transparent 30%),linear-gradient(180deg,#0a120d,#17100d)}
+.dream-title{font:italic 400 clamp(46px,8vw,90px)/1.05 var(--serif);margin:0;max-width:850px}
+.dream-copy{max-width:650px;color:var(--muted);font-size:17px;margin:26px 0 55px}
+.dream-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.dream{min-height:260px;border-radius:21px;padding:27px;border:1px solid rgba(255,255,255,.10);background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.02));position:relative;overflow:hidden}
+.dream small{font:500 9px var(--mono);color:var(--faint)}.dream h3{font:italic 400 30px var(--serif);margin:68px 0 8px}.dream p{font-size:14px;color:var(--muted);margin:0}
+@media(max-width:800px){.dream-grid{grid-template-columns:1fr}.dream{min-height:210px}.dream h3{margin-top:45px}}
+
+/* Final */
+#final{text-align:center;min-height:110vh;background:radial-gradient(circle at 50% 30%,rgba(126,224,162,.18),transparent 28%),radial-gradient(circle at 50% 75%,rgba(255,131,174,.11),transparent 30%),#050907}
+.final-title{font:italic 500 clamp(58px,11vw,140px)/.9 var(--serif);letter-spacing:-.05em;margin:0}.final-title small{display:block;font:500 10px var(--mono);letter-spacing:.3em;color:var(--faint);margin-bottom:28px}
+.final-copy{max-width:650px;margin:45px auto 0;color:var(--muted);font-size:clamp(17px,2.2vw,21px)}
+.final-button{margin-top:58px;padding:15px 27px;border:1px solid rgba(255,255,255,.17);border-radius:999px;background:rgba(255,255,255,.04);font:500 10px var(--mono);letter-spacing:.18em;text-transform:uppercase;transition:.4s var(--ease)}
+.final-button:hover{transform:translateY(-3px);background:rgba(126,224,162,.08);border-color:rgba(126,224,162,.5)}
+.final-reveal{max-height:0;opacity:0;overflow:hidden;transition:1.3s var(--ease)}.final-reveal.open{max-height:450px;opacity:1;margin-top:48px}
+.final-reveal p{font:italic 400 clamp(24px,3vw,34px)/1.6 var(--serif);margin:0}.final-reveal .small{font:500 10px var(--mono);letter-spacing:.16em;color:var(--faint);margin-top:28px}
+footer{text-align:center;padding:40px 20px 70px;background:#050907;color:var(--faint);font:500 9px var(--mono);letter-spacing:.18em}
+
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+ .reveal{opacity:1;transform:none;filter:none}.light{display:none}
+}
+</style>
+</head>
+
+<body class="lock">
+<div class="noise"></div><div class="ambient"></div><div class="light" id="light"></div><canvas id="stars"></canvas>
+
+<section id="gate">
+  <div class="gate-glow"></div>
+  <div class="gate-content">
+    <div class="gate-date">A LITTLE SOMETHING · JUST BECAUSE</div>
+    <div class="gate-for">for</div>
+    <div class="gate-name gradient">Anu.</div>
+    <div class="gate-sub">No occasion. No reason. Just friendship.</div>
+    <div class="enter"><button id="enter">Open our little chapter →</button></div>
+  </div>
+</section>
+
+<div class="progress"><span id="pageNo">01</span><div class="bar"><div class="fill" id="fill"></div></div><span>08</span></div>
+
+<main>
+<section class="section" id="opening">
+  <div class="orb" style="width:430px;height:430px;left:-12%;top:8%;background:var(--green)"></div>
+  <div class="orb" style="width:330px;height:330px;right:-8%;bottom:5%;background:var(--pink)"></div>
+  <div class="inner">
+    <p class="eyebrow reveal">a friendship worth a page</p>
+    <h1 class="hero-title reveal">Some people<br><span class="gradient">just make life better.</span></h1>
+    <p class="hero-copy reveal">And sometimes you don't need a birthday, an anniversary, or a special occasion to tell them that. Sometimes a friendship deserves its own little chapter — simply because it exists.</p>
+    <div class="scroll reveal"><i></i> TAKE YOUR TIME</div>
+  </div>
+</section>
+
+<section class="section" id="friendship">
+  <div class="orb" style="width:380px;height:380px;right:-12%;top:12%;background:var(--blue)"></div>
+  <div class="inner friend-grid">
+    <div>
+      <p class="eyebrow reveal">chapter / 01</p>
+      <h2 class="friend-title reveal">The best friendships are rarely <span>planned.</span></h2>
+    </div>
+    <div class="friend-copy reveal">
+      <p>They just happen. A conversation here, a laugh there, a completely random moment that somehow becomes something you remember.</p>
+      <p>And somewhere between all those ordinary moments, a person stops being “someone I know” and becomes <b>one of my people.</b></p>
+      <div class="mantra">No big speech. No dramatic reason.<br>Just a quiet “I'm glad you're here.”</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="photos">
+  <div class="orb" style="width:420px;height:420px;left:-12%;top:15%;background:var(--pink)"></div>
+  <div class="orb" style="width:360px;height:360px;right:-10%;bottom:3%;background:var(--yellow)"></div>
+  <div class="inner">
+    <div class="photo-head">
+      <div><p class="eyebrow reveal">chapter / 02 · little windows</p><h2 class="photo-title reveal">Just a few<br><span class="gradient">frames of Anu.</span></h2></div>
+      <p class="photo-copy reveal">Three different moments. Three different moods. Still the same person — completely herself.</p>
+    </div>
+    <div class="gallery">
+      <figure class="photo p1 reveal"><img src="anu-01.jpeg" alt="Anu" loading="lazy"><div class="photo-meta"><figcaption class="photo-caption">Grace, without trying.</figcaption><span class="photo-num">01 / 03</span></div></figure>
+      <figure class="photo p2 reveal"><img src="anu-02.jpeg" alt="Anu outdoors" loading="lazy"><div class="photo-meta"><figcaption class="photo-caption">A quiet moment.</figcaption><span class="photo-num">02 / 03</span></div></figure>
+      <figure class="photo p3 reveal"><img src="anu-03.jpeg" alt="Anu smiling" loading="lazy"><div class="photo-meta"><figcaption class="photo-caption">And that smile.</figcaption><span class="photo-num">03 / 03</span></div></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="little">
+  <div class="inner">
+    <p class="eyebrow reveal">chapter / 03 · the little things</p>
+    <h2 class="little-title reveal">It's never really about the <span class="gradient">big moments.</span></h2>
+    <div class="cards">
+      <article class="card reveal"><b>The random conversations.</b><span>The ones that start with absolutely nothing and somehow become the whole evening.</span></article>
+      <article class="card reveal"><b>The laughter.</b><span>The kind that makes no sense to anyone else — which somehow makes it better.</span></article>
+      <article class="card reveal"><b>The comfortable silence.</b><span>When you don't have to constantly find something to say.</span></article>
+      <article class="card reveal"><b>The friendship itself.</b><span>Simple, imperfect, occasionally chaotic — and still genuinely worth having.</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="timeline">
+  <div class="inner">
+    <p class="eyebrow reveal">chapter / 04 · how friendship feels</p>
+    <h2 class="little-title reveal">Some chapters don't need dates.</h2>
+    <div class="timeline">
+      <div class="event reveal"><small>THE BEGINNING</small><h3>“Oh, we're friends now?”</h3><p>Somewhere along the way, talking stopped feeling like an introduction and started feeling normal.</p></div>
+      <div class="event reveal"><small>THE MIDDLE</small><h3>“I have to tell you this.”</h3><p>That's when you know someone has quietly become part of your everyday life.</p></div>
+      <div class="event reveal"><small>THE GOOD PART</small><h3>“This is going to be a memory.”</h3><p>You don't always recognize the important moments while they're happening. Sometimes you only realize later.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="dreams">
+  <div class="orb" style="width:350px;height:350px;left:-10%;top:8%;background:var(--blue)"></div>
+  <div class="inner">
+    <p class="eyebrow reveal">chapter / 05 · for your future</p>
+    <h2 class="dream-title reveal">I hope your life becomes as beautiful as the things you <span class="gradient">dream about.</span></h2>
+    <p class="dream-copy reveal">Not because anyone else wrote the story for you — but because you kept choosing the things that make you feel alive.</p>
+    <div class="dream-grid">
+      <article class="dream reveal"><small>01</small><h3>Big dreams</h3><p>May you keep chasing the things that make your eyes light up.</p></article>
+      <article class="dream reveal"><small>02</small><h3>Good people</h3><p>May you always find people who respect your heart and celebrate your wins.</p></article>
+      <article class="dream reveal"><small>03</small><h3>Peace</h3><p>May life give you enough quiet moments to realize how far you've come.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="final">
+  <div class="inner">
+    <h2 class="final-title reveal"><small>chapter / 06 · just saying</small>I'm glad<br><span class="gradient">you're my friend.</span></h2>
+    <p class="final-copy reveal">That's it. No hidden meaning. No complicated message. No occasion needed.<br><br>Just a small reminder that some people make ordinary days a little more interesting, a little funnier, and a lot more memorable.</p>
+    <button class="final-button reveal" id="lastButton">One last little thought →</button>
+    <div class="final-reveal" id="lastThought">
+      <p>“If life is a story, I'm genuinely glad you became one of my favourite chapters.”</p>
+      <p>— Anu, stay exactly as wonderfully yourself as you are. ✨</p>
+      <p class="small">MADE FOR FRIENDSHIP · NOTHING MORE · NOTHING LESS</p>
+    </div>
+  </div>
+</section>
+<footer>FOR ANU · A LITTLE DIGITAL CHAPTER · MADE WITH FRIENDSHIP</footer>
+</main>
+
+<script>
+(() => {
+"use strict";
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const gate=document.getElementById("gate"), enter=document.getElementById("enter"), light=document.getElementById("light");
+enter.addEventListener("click",()=>{gate.classList.add("out");document.body.classList.remove("lock");setTimeout(()=>document.getElementById("opening").scrollIntoView({behavior:"smooth"}),250)});
+addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&!gate.classList.contains("out")){e.preventDefault();enter.click()}});
+if(!reduce&&matchMedia("(hover:hover)").matches)addEventListener("pointermove",e=>{light.style.left=e.clientX+"px";light.style.top=e.clientY+"px"},{passive:true});else light.style.display="none";
+
+const rev=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+document.querySelectorAll(".reveal").forEach(x=>rev.observe(x));
+
+const sections=[...document.querySelectorAll("main>section")], page=document.getElementById("pageNo"),fill=document.getElementById("fill");
+const secIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)page.textContent=String(sections.indexOf(e.target)+1).padStart(2,"0")}),{threshold:.5});
+sections.forEach(s=>secIO.observe(s));
+function progress(){let max=document.documentElement.scrollHeight-innerHeight;fill.style.height=(max?scrollY/max*100:0)+"%"}addEventListener("scroll",progress,{passive:true});progress();
+
+document.getElementById("lastButton").addEventListener("click",e=>{const box=document.getElementById("lastThought");box.classList.toggle("open");e.currentTarget.textContent=box.classList.contains("open")?"Keep this thought ↗":"One last little thought →"});
+
+const canvas=document.getElementById("stars"),ctx=canvas.getContext("2d");let dots=[];
+function resize(){const d=Math.min(devicePixelRatio||1,2);canvas.width=innerWidth*d;canvas.height=innerHeight*d;canvas.style.width=innerWidth+"px";canvas.style.height=innerHeight+"px";ctx.setTransform(d,0,0,d,0,0);dots=Array.from({length:innerWidth<700?40:72},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.25+.2,a:Math.random()*.45+.1,s:Math.random()*.16+.025}))}
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);dots.forEach(d=>{ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle=`rgba(215,255,230,${d.a})`;ctx.fill();d.y-=d.s;if(d.y<-5)d.y=innerHeight+5});if(!reduce)requestAnimationFrame(draw)}
+resize();if(!reduce)draw();addEventListener("resize",resize);
+})();
+</script>
+</body>
+</html>
